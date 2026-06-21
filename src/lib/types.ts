@@ -11,7 +11,7 @@ export interface Product {
   slug: string;
   name: string;
   price: number;
-  currency: "USD";
+  currency: "USD" | "TND";
   image: string;
   gallery?: string[];
   categories: Category[];

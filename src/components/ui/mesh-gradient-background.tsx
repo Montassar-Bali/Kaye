@@ -22,7 +22,6 @@ export function MeshGradientBackground({
         className="!fixed inset-0 w-full h-full"
         colors={["#000000", "#1a1a1a", "#333333", "#ffffff"]}
         speed={speed}
-        backgroundColor="#000000"
         style={{ position: "fixed", inset: 0, width: "100%", height: "100%" }}
       />
 
