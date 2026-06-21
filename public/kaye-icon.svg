@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="white">
+  <!-- K Monogram -->
+  <!-- Vertical stem -->
+  <rect x="48" y="18" width="5" height="162" />
+  <!-- Top serif -->
+  <rect x="38" y="14" width="24" height="2" rx="0.5" />
+  <!-- Bottom serif -->
+  <rect x="38" y="178" width="24" height="2" rx="0.5" />
+
+  <!-- Upper arm — thin diagonal going upper-right -->
+  <polygon points="53,95 152,16 155,19 53,100" />
+
+  <!-- Lower leg — elegant curve sweeping down-right -->
+  <path d="M 53,102 C 70,120 100,152 145,178 L 142,182 C 96,155 68,124 53,106 Z" />
+</svg>

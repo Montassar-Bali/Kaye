@@ -32,9 +32,15 @@ yarn-error.log*
 
 # env files (can opt-in for committing if needed)
 .env*
+!.env.example
+!.env.enc
+.env.key
 
 # vercel
 .vercel
+
+# local JSON "database" for dev auth + orders
+/.data/
 
 # typescript
 *.tsbuildinfo

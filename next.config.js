@@ -1,6 +1,5 @@
-import type { NextConfig } from "next";
-
-const securityHeaders: Array<{ key: string; value: string }> = [
+/** @type {import('next').NextConfig} */
+const securityHeaders = [
   { key: "X-DNS-Prefetch-Control", value: "off" },
   { key: "X-Frame-Options", value: "DENY" },
   { key: "X-Content-Type-Options", value: "nosniff" },
@@ -21,7 +20,7 @@ if (process.env.NODE_ENV === "production") {
   });
 }
 
-const nextConfig: NextConfig = {
+const nextConfig = {
   poweredByHeader: false,
   images: {
     remotePatterns: [
@@ -42,4 +41,4 @@ const nextConfig: NextConfig = {
   },
 };
 
-export default nextConfig;
+module.exports = nextConfig;

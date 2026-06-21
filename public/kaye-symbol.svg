@@ -1,0 +1,39 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 240 240"
+  fill="none"
+  aria-hidden="true"
+>
+  <defs>
+    <linearGradient id="kayeSilver" x1="38" y1="26" x2="206" y2="214" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f8fbff" />
+      <stop offset="0.22" stop-color="#dce2ea" />
+      <stop offset="0.5" stop-color="#a7b1be" />
+      <stop offset="0.74" stop-color="#e2e7ef" />
+      <stop offset="1" stop-color="#8d97a5" />
+    </linearGradient>
+    <linearGradient id="kayeSilverSoft" x1="50" y1="40" x2="190" y2="204" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f4f7fb" stop-opacity="0.95" />
+      <stop offset="1" stop-color="#b5bfcc" stop-opacity="0.7" />
+    </linearGradient>
+    <filter id="kayeGlow" x="-35%" y="-35%" width="170%" height="170%">
+      <feDropShadow dx="0" dy="0" stdDeviation="2.8" flood-color="#0b0d12" flood-opacity="0.6" />
+    </filter>
+  </defs>
+
+  <g filter="url(#kayeGlow)" stroke-linecap="round" stroke-linejoin="round">
+    <path
+      d="M120 18L222 120L120 222L18 120Z"
+      stroke="url(#kayeSilverSoft)"
+      stroke-width="5"
+      opacity="0.78"
+    />
+
+    <path d="M78 42V198" stroke="url(#kayeSilver)" stroke-width="15" />
+    <path d="M78 122L178 40" stroke="url(#kayeSilver)" stroke-width="13" />
+    <path d="M78 118L184 198" stroke="url(#kayeSilver)" stroke-width="13" />
+
+    <path d="M136 78L160 104L184 78" stroke="url(#kayeSilver)" stroke-width="8" />
+    <path d="M160 104V168" stroke="url(#kayeSilver)" stroke-width="8" />
+  </g>
+</svg>

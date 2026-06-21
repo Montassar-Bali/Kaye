@@ -1,36 +1,83 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# KAYE Fashion Store
 
-## Getting Started
+Luxury fashion storefront built with Next.js (App Router).
 
-First, run the development server:
+## Local Development
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open `http://localhost:3000`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Security Baseline Included
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Hardened response headers in Next config (`X-Frame-Options`, `nosniff`, `HSTS` in production, etc.)
+- HttpOnly + secure session cookie settings
+- Server-side origin checks on sensitive write endpoints
+- In-memory API rate limiting for auth and order routes
+- `no-store` API cache headers for user/session/order responses
+- Server-side repricing of cart items before order creation
 
-## Learn More
+## Environment Variables
 
-To learn more about Next.js, take a look at the following resources:
+Create `.env` from `.env.example` and fill values:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+cp .env.example .env
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Required:
 
-## Deploy on Vercel
+- `NOIR_SESSION_SECRET`: at least 32 chars (64 hex chars recommended)
+- `NOIR_ALLOWED_ORIGINS`: comma-separated trusted origins
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Generate a strong session secret:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+npm run gen:session-secret
+```
+
+## Encrypt `.env` Before Sharing
+
+Set an encryption key in your shell (do not commit this key):
+
+```bash
+export ENV_ENCRYPTION_KEY="replace-with-a-long-unique-passphrase"
+```
+
+Encrypt `.env` to `.env.enc`:
+
+```bash
+npm run encrypt:env
+```
+
+Decrypt when needed:
+
+```bash
+npm run decrypt:env
+```
+
+Notes:
+
+- Commit `.env.enc` only if your team actually uses this workflow.
+- Never commit `.env` or `.env.key`.
+- Store `ENV_ENCRYPTION_KEY` in a password manager or CI secret manager.
+
+## Pre-Publish Security Checklist (GitHub)
+
+1. Ensure `.env` is ignored and not staged: `git status`
+2. Rotate any key you may have ever exposed
+3. Use GitHub Secrets (or host secrets) for production env values
+4. Run checks before push:
+
+```bash
+npm run lint
+npm run build
+```
+
+## Production Notes
+
+- This project currently uses local JSON files in `.data/` as a demo datastore.
+- For production, migrate to a managed database and central rate limiter (Redis/upstash).
